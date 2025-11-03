@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whimsical Art & Tech - Arfa</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with a cute, whimsical Pink/Mint scheme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#F472B6', // Pink 400 (Cute, Main Accent)
+                        'secondary': '#34D399', // Mint Green 500 (Fresh Highlight)
+                        'bg-dark': '#1F2937', // Dark Slate Gray for contrast
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Use Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for aesthetics */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: #111827; }
+        body::-webkit-scrollbar-thumb { background: #F472B6; /* primary color */ border-radius: 4px; }
+        
+        /* Ensure the canvas covers the hero section */
+        #starCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .hero-background {
+            background-color: #1F2937;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm shadow-xl border-b border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Branding -->
+            <a href="#hero" class="text-2xl font-bold text-primary tracking-widest uppercase">CHARM.ART</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#projects" class="text-gray-300 hover:text-primary transition duration-300">Whimsy</a>
+                <a href="#competencies" class="text-gray-300 hover:text-primary transition duration-300">Tech Flow</a>
+                <!-- ARTSTATION LINK -->
+                <a href="https://www.artstation.com/arfa13" target="_blank" class="text-secondary hover:text-primary transition duration-300 font-semibold">ArtStation</a>
+                <a href="#contact" class="text-gray-300 hover:text-primary transition duration-300">Say Hello!</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-primary focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 px-4 border-t border-primary/20">
+            <a href="#projects" class="block py-2 text-gray-300 hover:text-primary transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Whimsy</a>
+            <a href="#competencies" class="block py-2 text-gray-300 hover:text-primary transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Tech Flow</a>
+            <!-- ARTSTATION LINK (Mobile) -->
+            <a href="https://www.artstation.com/arfa13" target="_blank" class="block py-2 text-secondary hover:text-primary transition duration-300 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">ArtStation</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-primary transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Say Hello!</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Focus on Vision -->
+        <section id="hero" class="hero-background text-center py-20 md:py-32 lg:py-48 border-b-4 border-primary/50 relative overflow-hidden">
+            
+            <!-- Animated Sparkle Canvas -->
+            <canvas id="starCanvas"></canvas>
+
+            <!-- Content is wrapped and given z-index to float above canvas -->
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 text-white drop-shadow-lg">
+                    Arfa
+                </h1>
+                <p class="text-2xl md:text-3xl text-secondary font-light mb-8 italic">
+                    2D Artist & Whimsical Tech Flow
+                </p>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
+                    I take **end-to-end ownership** of visual development, designing memorable characters and magical environments, and crafting the seamless tech flow to bring that imagination to life in-engine.
+                </p>
+                <a href="#projects" class="inline-block px-10 py-4 text-lg font-semibold bg-primary text-gray-900 rounded-full shadow-2xl hover:bg-pink-300 transform hover:scale-105 transition duration-300 ease-in-out uppercase tracking-wider">
+                    Explore My Magic &rarr;
+                </a>
+            </div>
+        </section>
+
+        <!-- Projects Section - Visual Development & Assets -->
+        <section id="projects" class="py-16 md:py-24 bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12 text-white">Visual Development: Charms & Wonders</h2>
+
+                <!-- Updated Grid Layout to support 3 cards on large screens -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Project Card 1: The Last Biscuit -->
+                    <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 group border-t-4 border-primary/0 hover:border-primary">
+                        <!-- Image Source updated -->
+                        <img src="https://img.itch.zone/aW1nLzIyOTY0MDkxLnBuZw==/315x250%23c/0%2BuG7D.png" alt="The Last Biscuit Game Asset Showcase" class="w-full h-48 object-cover object-center group-hover:opacity-75 transition duration-500">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-primary">The Last Biscuit</h3>
+                            <!-- UPDATED TAG: Emphasizing full ownership -->
+                            <span class="inline-block mb-2 text-sm font-medium text-secondary bg-secondary/20 px-3 py-1 rounded-full">Complete Visual Ownership: Character & World</span>
+                            <!-- Removed Description Paragraph and "View Character Bible" link -->
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: Mochi Kaze: Full 2D Asset Production (Characters, UI, Environments) -->
+                    <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 group border-t-4 border-primary/0 hover:border-primary">
+                        <!-- Image Source updated to Mochi Kaze Art -->
+                        <img src="https://img.itch.zone/aW1hZ2UvMzk1MzMwNy8yMzU3MjAxOC5wbmc=/794x1000/sJctBS.png" alt="Mochi Kaze Game Asset Showcase" class="w-full h-48 object-cover object-center group-hover:opacity-75 transition duration-500">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-primary">Mochi Kaze: Full 2D Asset Production</h3>
+                            <!-- Tag is already strong enough -->
+                            <span class="inline-block mb-2 text-sm font-medium text-secondary bg-secondary/20 px-3 py-1 rounded-full">All 2D Assets & UI/UX</span>
+                            
+                            <!-- Removed "View Project Breakdown" link -->
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Graveyard Rush -->
+                    <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 group border-t-4 border-primary/0 hover:border-primary">
+                        <!-- Image source updated to Graveyard Rush Art -->
+                        <img src="https://img.itch.zone/aW1nLzIzNDc1MTAwLnBuZw==/315x250%23c/hYram1.png" alt="Graveyard Rush Background Art and Assets" class="w-full h-48 object-cover object-center group-hover:opacity-75 transition duration-500">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-primary">Graveyard Rush</h3>
+                            <!-- UPDATED TAG: Emphasizing full ownership -->
+                            <span class="inline-block mb-2 text-sm font-medium text-secondary bg-secondary/20 px-3 py-1 rounded-full">Complete Environment & Asset Delivery</span>
+                            <!-- Removed Description and Link -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Competencies Section - Art-focused skills -->
+        <section id="competencies" class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12 text-white">Magic Meets Logic: Core Skills</h2>
+                <p class="text-lg text-gray-300 text-center mb-16 max-w-4xl mx-auto">
+                    I ensure that the most imaginative visuals are brought to life smoothly and efficiently, making the art process feel like magic.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                    
+                    <!-- Competency 1: Illustration & Concept Art -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-primary">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Whimsical Illustration & Concepts</h3>
+                        <p class="text-gray-400 mb-4">
+                            Expert in rendering, color harmony, and creating cozy, inviting environments and character designs.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1 ml-4">
+                            <li>Procreate & Photoshop Digital Painting</li>
+                            <li>Expressive Character and Prop Design</li>
+                            <li>Soft, Stylized Rendering Techniques</li>
+                        </ul>
+                    </div>
+
+                    <!-- Competency 2: Technical Art / Shaders (2D focus) -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-primary">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Soft Shaders and VFX Systems</h3>
+                        <p class="text-gray-400 mb-4">
+                            Developing smooth, stylized shaders (e.g., watercolor effects, soft glow) and using VFX graphs for gentle, cute particle systems.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1 ml-4">
+                            <li>Unity Shader Graph & URP</li>
+                            <li>Sprite Sheet Optimization and Packaging</li>
+                            <li>Custom Sparkle & Glow Effects</li>
+                        </ul>
+                    </div>
+
+                    <!-- Competency 3: Tool Development for Artists -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-primary">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Tool Development & Automation</h3>
+                        <p class="text-gray-400 mb-4">
+                            Building small, helpful tools (Python, C#) to automate the boring parts of art integration, like sprite sheet slicing and animation prep.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1 ml-4">
+                            <li>Python Pipeline Scripting</li>
+                            <li>C# Unity Editor Scripting (Time Savers)</li>
+                            <li>Clean Asset Importer Setup</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Competency 4: Animation & Rigging -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-primary">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Sweet Animation & Rigging</h3>
+                        <p class="text-gray-400 mb-4">
+                            Creating fluid, charming 2D animations using skeletal rigging to give characters a soft, lively movement quality.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1 ml-4">
+                            <li>Spine & Unity 2D Animation Package</li>
+                            <li>Rigging for Cute & Exaggerated Movement</li>
+                            <li>Smooth Transition Logic</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-900 border-t border-primary/20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12 text-white">Let's Create Magic</h2>
+                
+                <!-- Contact Card -->
+                <div class="bg-gray-800 p-8 md:p-12 rounded-xl shadow-2xl border-2 border-primary/50">
+                    <p class="text-lg text-gray-300 mb-6 text-center">
+                        I'm excited about cute, new projects! Drop a line if you need charming visuals or pipeline expertise.
+                    </p>
+                    
+                    <!-- ARTSTATION CALLOUT -->
+                    <div class="mb-8 text-center">
+                        <a href="https://www.artstation.com/arfa13" target="_blank" class="inline-block px-6 py-2 text-md font-medium bg-secondary text-gray-900 rounded-full shadow-lg hover:bg-green-400 transition duration-300 uppercase tracking-wider">
+                            See My Art (ArtStation) &hearts; &rarr;
+                        </a>
+                    </div>
+                    <!-- End ARTSTATION CALLOUT -->
+
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-primary focus:border-primary transition duration-200" placeholder="Your Sweet Identity">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-primary focus:border-primary transition duration-200" placeholder="email@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message / Project Inquiry</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-primary focus:border-primary transition duration-200" placeholder="Tell me about your lovely project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-primary text-gray-900 font-semibold rounded-lg shadow-xl hover:bg-pink-300 transform hover:scale-[1.01] transition duration-300 uppercase tracking-wider">
+                            Send Magic Mail
+                        </button>
+                    </form>
+                    
+                    <p class="text-center text-sm text-gray-500 mt-6">
+                        <span class="text-secondary mr-1">&bull;</span> Creating charming visuals, one pixel at a time.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Arfa | Whimsical Visuals</p>
+            <p class="mt-2 space-x-4">
+                <a href="https://www.artstation.com/arfa13" target="_blank" class="hover:text-primary transition duration-300">ArtStation</a>
+                <span>&bull;</span>
+                <a href="FRIENDS_LINKEDIN_LINK_HERE" class="hover:text-primary transition duration-300">LinkedIn</a>
+                <span>&bull;</span>
+                Made with Love & Code
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle and Floating Star Effect -->
+    <script>
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // --- Contact Form Handler ---
+        document.querySelector('#contact form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.name.value || 'Fellow Artist';
+            
+            // Display successful submission message
+            const contactCard = form.closest('div');
+            contactCard.innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full py-16">
+                    <svg class="w-16 h-16 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="text-3xl font-bold text-white mb-2">Mail Sent! Thank Thank You!</h3>
+                    <p class="text-lg text-gray-400 text-center">I'll send a sweet reply back to you soon, ${name}.</p>
+                </div>
+            `;
+        });
+        
+        // --- Floating Star/Sparkle Canvas Effect ---
+        const canvas = document.getElementById('starCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const PARTICLE_COUNT = 60;
+        
+        // Particle Class
+        class Particle {
+            constructor(w, h) {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.size = Math.random() * 1.5 + 0.5; // Tiny sparkles
+                this.speedY = Math.random() * 0.3 + 0.1; // Slow upward float
+                this.opacity = 0;
+                this.color = Math.random() > 0.5 ? '#F472B6' : '#34D399'; // Pink or Mint
+            }
+
+            update(h) {
+                this.y -= this.speedY; // Move up
+                this.opacity += 0.005;
+
+                // Loop particle back to the bottom when it leaves the top
+                if (this.y < 0) {
+                    this.y = h;
+                    this.x = Math.random() * canvas.width;
+                    this.opacity = 0;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${parseInt(this.color.slice(1, 3), 16)}, ${parseInt(this.color.slice(3, 5), 16)}, ${parseInt(this.color.slice(5, 7), 16)}, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        function resizeCanvas() {
+            const hero = document.getElementById('hero');
+            canvas.width = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
+            
+            // Reinitialize particles on resize to ensure proper placement
+            if (particles.length === 0) {
+                 for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push(new Particle(canvas.width, canvas.height));
+                }
+            }
+        }
+        
+        function animateStars() {
+            // Clear the canvas, but keep the effect subtle (using small alpha for fade effect)
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update(canvas.height);
+                particles[i].draw();
+            }
+
+            requestAnimationFrame(animateStars);
+        }
+
+        // Initialize and start animation on load and resize
+        window.addEventListener('load', () => {
+            resizeCanvas();
+            animateStars();
+        });
+
+        window.addEventListener('resize', () => {
+            // Debounce resize for performance
+            clearTimeout(window.resizeTimeout);
+            window.resizeTimeout = setTimeout(() => {
+                resizeCanvas();
+            }, 100);
+        });
+        
+        // Placeholder image error handling (Good practice)
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = () => {
+                img.src = `https://placehold.co/${img.width}x${img.height}/374151/F472B6?text=CUTE+ASSET+HERE`;
+            };
+        });
+
+    </script>
+</body>
+</html>
